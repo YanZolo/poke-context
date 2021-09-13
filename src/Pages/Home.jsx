@@ -34,7 +34,7 @@ const Home = () => {
                     <p>height: <span>{pokemon.height}</span></p>
                     <p>weight: <span>{pokemon.weight}</span></p>
                     <div>
-                        types:
+                        types: 
                         {pokemon.types.map(pokemon => (
 
                             <li>
