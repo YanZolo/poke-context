@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom';
 import Error404 from './Pages/Error404';
 
+
 const App = () => {
+  // const [isLogged, setIsLogged] = useState(false)
+  // const UserContext = React.createContext({ isLogged: false })
+
+  // const setAuth = () => {
+  //   isLogged === false ? setIsLogged(true) : setIsLogged(false)
+  // }
   return (
-    <div>
+    // <UserContext.Provider value={isLogged, setAuth()}>
       <BrowserRouter>
 
         <div className='container-navbar'>
@@ -33,7 +40,7 @@ const App = () => {
 
         </Switch>
       </BrowserRouter>
-    </div>
+    // </UserContext.Provider>
 
   );
 };

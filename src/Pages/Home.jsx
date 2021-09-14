@@ -27,21 +27,28 @@ const Home = () => {
     return (
         <div className='container'>
 
-            
+
             {pokemon &&
                 <div className='containerInfosHome'>
-                    <p>name: <span>{pokemon.name}</span></p>
-                    <p>height: <span>{pokemon.height}</span></p>
-                    <p>weight: <span>{pokemon.weight}</span></p>
-                    <div>
-                        types: 
-                        {pokemon.types.map(pokemon => (
 
-                            <li>
-                                -{pokemon.type.name}
-                            </li>
+                    <div className="container-img-pokemon">
+                        <img className='img-pokemon' src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
+                        <div className="description-pokemon">
+                            <p>name: <span>{pokemon.name}</span></p>
+                            <p>height: <span>{pokemon.height}</span></p>
+                            <p>weight: <span>{pokemon.weight}</span></p>
+                            <br />
+                            <div className='description-types-pokemon'>
+                                types:
+                                {pokemon.types.map(pokemon => (
 
-                        ))}
+                                    <li>
+                                        -{pokemon.type.name}
+                                    </li>
+
+                                ))}
+                            </div>
+                        </div>
                     </div>
                     <button className='btnHome' onClick={handleRandomPokemon}>Random pokemon</button>
                 </div>
