@@ -21,7 +21,7 @@ const Home = () => {
 
     const handleRandomPokemon = () => {
         console.log('handleRandomPokemon started')
-        const randomIdPokemon = Math.floor(Math.random() * 151) + 1
+        const randomIdPokemon = Math.floor(Math.random() * 100) + 1
         setIdPokemon(randomIdPokemon)
     }
 
@@ -30,47 +30,46 @@ const Home = () => {
     console.log('idPokemon', idPokemon)
     return (
 
-        <div className='container'>
-
+        <>
 
 
             {pokemon && isLogged ?
+                <div className='container'>
 
-                <div className='containerInfosHome'>
+                    <div className='containerInfosHome'>
 
-                    <div className="container-img-pokemon">
-                        <img className='img-pokemon' src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
-                        <div className="description-pokemon">
-                            <p>name: <span>{pokemon.name}</span></p>
-                            <p>height: <span>{pokemon.height}</span></p>
-                            <p>weight: <span>{pokemon.weight}</span></p>
-                            <br />
-                            <div className='description-types-pokemon'>
-                                types:
-                                {pokemon.types.map(pokemon => (
+                        <div className="container-img-pokemon">
+                            <img className='img-pokemon' src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
+                            <div className="description-pokemon">
+                                <p>name: <span>{pokemon.name}</span></p>
+                                <p>height: <span>{pokemon.height}</span></p>
+                                <p>weight: <span>{pokemon.weight}</span></p>
+                                <br />
+                                <div className='description-types-pokemon'>
+                                    types:
+                                    {pokemon.types.map(pokemon => (
 
-                                    <li>
-                                        -{pokemon.type.name}
-                                    </li>
+                                        <li>
+                                            -{pokemon.type.name}
+                                        </li>
 
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
+                        <button className='btnHome' onClick={handleRandomPokemon}>Random pokemon</button>
                     </div>
-                    <button className='btnHome' onClick={handleRandomPokemon}>Random pokemon</button>
-                </div>
 
+                </div>
                 :
-                <div className='containerInfosHome'>
+               
                     <Link to='/Login' >
-                    <button className='btnPleaseLogin'>Please login first</button>
+                        <button className='btnPleaseLogin'>Please login first</button>
                     </Link>
-            
-                </div>
+                
             }
-        </div>
 
-
+        </>
     );
 };
 
