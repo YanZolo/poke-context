@@ -1,9 +1,13 @@
-import React from 'react';
+import { React, useContext } from 'react';
 import { useEffect, useState, } from 'react';
+import { Link } from 'react-router-dom';
+import { UserContext } from '../App';
+
 
 const Home = () => {
     const [pokemon, setPokemon] = useState(null);
     const [idPokemon, setIdPokemon] = useState(1)
+    const { isLogged } = useContext(UserContext)
 
 
     useEffect(() => {
@@ -25,10 +29,13 @@ const Home = () => {
     console.log('pokemon', pokemon)
     console.log('idPokemon', idPokemon)
     return (
+
         <div className='container'>
 
 
-            {pokemon &&
+
+            {pokemon && isLogged ?
+
                 <div className='containerInfosHome'>
 
                     <div className="container-img-pokemon">
@@ -52,10 +59,18 @@ const Home = () => {
                     </div>
                     <button className='btnHome' onClick={handleRandomPokemon}>Random pokemon</button>
                 </div>
+
+                :
+                <div className='containerInfosHome'>
+                    <Link to='/Login' >
+                    <button className='btnPleaseLogin'>Please login first</button>
+                    </Link>
+            
+                </div>
             }
-
-
         </div>
+
+
     );
 };
 

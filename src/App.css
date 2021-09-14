@@ -184,4 +184,26 @@ a {
 background-color: #B3A125; 
 border-radius: 5px;
 }
+.btnPleaseLogin {
+ margin: 10px 15px;
+ padding: 10px; 
+ border-radius: 5px;
+ background-color: #b3a0257e; 
+
+}
+.btnPleaseLogin:hover {
+background-color: #B3A125; 
+border-radius: 5px;
+}
+.btnLogOut {
+ margin: 10px 15px;
+ padding: 10px; 
+ border-radius: 5px;
+ background-color: #CC0000; 
+
+}
+.btnLogOut:hover {
+background-color: #FF0000; 
+border-radius: 5px;
+}
 

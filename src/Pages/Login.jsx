@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { UserContext } from '../App';
+import { useHistory } from "react-router-dom";
+
+
 
 const Login = () => {
+    const { isLogged,setAuth} = useContext(UserContext)
+    // console.log('is logged',isLogged);
+    
+    // console.log(setAuth);
+    
+    // console.log(UserContext);
+
+    const history = useHistory()
+
+    const redirect = () => {
+      
+      history.push('/')
+    }
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
     const onSubmit = (data) => {
-        console.log('data on submit', data)
+        console.log('data on submit', data);
+        setAuth()
+        redirect()
+        
     }
     console.log("errors", errors);
 
@@ -44,8 +65,23 @@ const Login = () => {
                     </span>
                     <li>{errors.password && errors.password.message}</li>
                 </div>
-
-                <button className='btnLogin' type='submit'>Envoyer</button>
+                {isLogged ?
+                    <button
+                        className="btnLogOut"
+                        type='submit'
+                        onClick={onSubmit}>
+                        Logout
+                    </button> 
+                    
+                    :                 
+                    
+                        <button
+                            className='btnLogin'
+                            type='submit'>
+                            Envoyer
+                        </button>
+                    
+                }
 
             </form>
         </div>
